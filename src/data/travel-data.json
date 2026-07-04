@@ -1,0 +1,53 @@
+{
+  "defaultAttractions": [
+    "Historic old town walk",
+    "Signature museum or cultural center",
+    "Main market district",
+    "Iconic viewpoint",
+    "Beloved public square"
+  ],
+  "defaultHiddenGems": [
+    "A quiet neighborhood cafe",
+    "Independent artisan studio",
+    "Lesser-known temple, church, mosque, or heritage site",
+    "Local morning market",
+    "Small community park with a view"
+  ],
+  "foodsByInterest": {
+    "Food": ["Street snacks", "Seasonal sweets", "A family-run local meal"],
+    "History": ["Traditional recipes with royal or trade-route roots"],
+    "Nature": ["Fresh regional produce and herbal drinks"],
+    "Adventure": ["Portable trail snacks and local energy foods"],
+    "Shopping": ["Market tastings and packaged spices"],
+    "Photography": ["Colorful desserts and tea house specialties"],
+    "Culture": ["Ceremonial dishes and festival foods"]
+  },
+  "experiencesByInterest": {
+    "Food": ["Join a small-group cooking class", "Explore a guided market tasting"],
+    "History": ["Take a heritage walk with a local guide", "Visit a restored historic quarter"],
+    "Nature": ["Plan a sunrise garden or waterfront walk", "Spend an afternoon in a nearby nature reserve"],
+    "Adventure": ["Try a guided outdoor activity matched to the region", "Add an early morning viewpoint hike"],
+    "Shopping": ["Browse craft lanes and fair-trade boutiques", "Meet artisans in a workshop district"],
+    "Photography": ["Capture golden-hour street scenes", "Visit a scenic rooftop or riverside viewpoint"],
+    "Culture": ["Attend a folk performance or storytelling evening", "Learn greetings and etiquette from a local host"]
+  },
+  "festivals": [
+    "Seasonal food fair",
+    "Local music or dance night",
+    "Weekend craft market",
+    "Harvest or flower celebration",
+    "Heritage walk festival"
+  ],
+  "tips": [
+    "Carry a reusable water bottle and a small day bag.",
+    "Confirm local opening days before visiting museums or heritage sites.",
+    "Keep digital and printed copies of key travel documents.",
+    "Use licensed transport late at night.",
+    "Learn two or three local greetings before arrival."
+  ],
+  "budgetRanges": {
+    "Low": "$45-$80 per day",
+    "Medium": "$90-$170 per day",
+    "High": "$200-$380+ per day"
+  }
+}
