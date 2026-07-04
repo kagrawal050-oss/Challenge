@@ -1,0 +1,6 @@
+{
+  "/api/travel-plan/route": "/api/travel-plan",
+  "/_not-found/page": "/_not-found",
+  "/plan/page": "/plan",
+  "/page": "/"
+}

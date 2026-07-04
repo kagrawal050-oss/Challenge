@@ -1,0 +1,46 @@
+{
+  "pages": {
+    "/_not-found/page": [
+      "static/chunks/webpack-411e9c536c28aa4f.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-3981a3d1f3561bd8.js",
+      "static/chunks/main-app-f609a6e498021bb1.js",
+      "static/chunks/app/_not-found/page-9ab03eea3a877255.js"
+    ],
+    "/api/travel-plan/route": [
+      "static/chunks/webpack-411e9c536c28aa4f.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-3981a3d1f3561bd8.js",
+      "static/chunks/main-app-f609a6e498021bb1.js",
+      "static/chunks/app/api/travel-plan/route-d19219621e131fb3.js"
+    ],
+    "/layout": [
+      "static/chunks/webpack-411e9c536c28aa4f.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-3981a3d1f3561bd8.js",
+      "static/chunks/main-app-f609a6e498021bb1.js",
+      "static/css/4b864cabd3afffda.css",
+      "static/chunks/app/layout-380151d0663538e7.js"
+    ],
+    "/plan/page": [
+      "static/chunks/webpack-411e9c536c28aa4f.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-3981a3d1f3561bd8.js",
+      "static/chunks/main-app-f609a6e498021bb1.js",
+      "static/chunks/164f4fb6-7356bcf5f1bae2de.js",
+      "static/chunks/238-67a9f554e4404745.js",
+      "static/chunks/997-1fc391b1cf3a6b84.js",
+      "static/chunks/app/plan/page-867d5d0c054ce8de.js"
+    ],
+    "/page": [
+      "static/chunks/webpack-411e9c536c28aa4f.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-3981a3d1f3561bd8.js",
+      "static/chunks/main-app-f609a6e498021bb1.js",
+      "static/chunks/164f4fb6-7356bcf5f1bae2de.js",
+      "static/chunks/238-67a9f554e4404745.js",
+      "static/chunks/526-4e9c39c154b1b519.js",
+      "static/chunks/app/page-2f8b5fcd0ab5f82c.js"
+    ]
+  }
+}
