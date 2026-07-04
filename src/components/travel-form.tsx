@@ -23,6 +23,7 @@ const initialValues: TravelPreferences = {
 export function TravelForm({ isLoading, onGenerate }: TravelFormProps) {
   const [values, setValues] = useState<TravelPreferences>(initialValues);
   const [error, setError] = useState<string | null>(null);
+  const errorId = "travel-form-error";
 
   function updateInterest(interest: Interest, checked: boolean) {
     setValues((current) => ({
@@ -56,6 +57,8 @@ export function TravelForm({ isLoading, onGenerate }: TravelFormProps) {
 
   return (
     <form
+      aria-describedby={error ? errorId : undefined}
+      aria-busy={isLoading}
       className="rounded-lg border border-slate-200 bg-white p-5 shadow-soft"
       onSubmit={handleSubmit}
       noValidate
@@ -68,6 +71,8 @@ export function TravelForm({ isLoading, onGenerate }: TravelFormProps) {
           className="mt-2 w-full rounded-md border border-slate-300 px-3 py-3 text-sm outline-none transition focus:border-compass focus:ring-2 focus:ring-teal-100"
           id="destination"
           name="destination"
+          aria-invalid={Boolean(error && values.destination.trim().length < 2)}
+          aria-describedby={error ? errorId : undefined}
           maxLength={80}
           onChange={handleTextChange}
           placeholder="Kyoto, Japan"
@@ -103,6 +108,8 @@ export function TravelForm({ isLoading, onGenerate }: TravelFormProps) {
           <input
             className="mt-2 w-full rounded-md border border-slate-300 px-3 py-3 text-sm outline-none transition focus:border-compass focus:ring-2 focus:ring-teal-100"
             id="duration"
+            aria-invalid={Boolean(error && (values.duration < 1 || values.duration > 30))}
+            aria-describedby={error ? errorId : undefined}
             max={30}
             min={1}
             name="duration"
@@ -132,14 +139,16 @@ export function TravelForm({ isLoading, onGenerate }: TravelFormProps) {
         </div>
       </div>
 
-      <fieldset className="mt-5">
+      <fieldset className="mt-5" aria-describedby={error ? errorId : undefined}>
         <legend className="text-sm font-semibold text-ink">Interests</legend>
         <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
           {interests.map((interest) => {
             const checked = values.interests.includes(interest);
+            const inputId = `interest-${interest.toLowerCase()}`;
 
             return (
               <label
+                htmlFor={inputId}
                 className={cn(
                   "flex min-h-11 cursor-pointer items-center gap-2 rounded-md border px-3 py-2 text-sm transition",
                   checked
@@ -151,8 +160,11 @@ export function TravelForm({ isLoading, onGenerate }: TravelFormProps) {
                 <input
                   checked={checked}
                   className="h-4 w-4 accent-compass"
+                  id={inputId}
+                  name="interests"
                   onChange={(event) => updateInterest(interest, event.target.checked)}
                   type="checkbox"
+                  value={interest}
                 />
                 {interest}
               </label>
@@ -163,6 +175,7 @@ export function TravelForm({ isLoading, onGenerate }: TravelFormProps) {
 
       {error ? (
         <div
+          id={errorId}
           className="mt-4 flex items-start gap-2 rounded-md border border-red-200 bg-red-50 p-3 text-sm text-red-800"
           role="alert"
         >
@@ -171,9 +184,9 @@ export function TravelForm({ isLoading, onGenerate }: TravelFormProps) {
         </div>
       ) : null}
 
-      <Button className="mt-5 w-full sm:w-auto" disabled={isLoading} type="submit">
+      <Button className="mt-5 w-full sm:w-auto" disabled={isLoading} type="submit" aria-live="polite">
         <WandSparkles className="h-4 w-4" aria-hidden="true" />
-        Generate AI Travel Plan
+        {isLoading ? "Generating AI Travel Plan" : "Generate AI Travel Plan"}
       </Button>
     </form>
   );

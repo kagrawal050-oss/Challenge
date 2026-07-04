@@ -45,12 +45,15 @@ export function Checklist({ plan }: ChecklistProps) {
             <div className="mt-2 space-y-2">
               {items.map((item) => (
                 <label
+                  htmlFor={`${storageKey}-${item.id}`}
                   className="flex min-h-10 cursor-pointer items-start gap-3 rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-700 hover:bg-slate-50"
                   key={item.id}
                 >
                   <input
                     checked={Boolean(completed[item.id])}
                     className="mt-1 h-4 w-4 accent-compass"
+                    id={`${storageKey}-${item.id}`}
+                    name={`${category}-checklist`}
                     onChange={() => toggleItem(item.id)}
                     type="checkbox"
                   />

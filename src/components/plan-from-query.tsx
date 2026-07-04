@@ -6,52 +6,17 @@ import { useSearchParams } from "next/navigation";
 import { AlertCircle, ArrowLeft } from "lucide-react";
 import { LoadingState } from "@/components/loading-state";
 import { PlanResults } from "@/components/plan-results";
+import { getPreferencesFromSearchParams } from "@/lib/query-preferences";
 import { cn } from "@/lib/utils";
-import { budgets, interests, travelStyles, type Interest, type TravelPlan, type TravelPreferences } from "@/types/travel";
+import type { TravelPlan } from "@/types/travel";
 
 type TravelPlanApiResponse =
   | { plan: TravelPlan }
   | { error: string };
 
-function matchOption<const T extends readonly string[]>(
-  value: string | null,
-  options: T,
-  fallback: T[number]
-): T[number] {
-  if (!value) {
-    return fallback;
-  }
-
-  const normalized = value.trim().toLowerCase();
-  return options.find((option) => option.toLowerCase() === normalized) ?? fallback;
-}
-
-function parseInterests(value: string | null) {
-  if (!value) {
-    return ["Culture"] satisfies Interest[];
-  }
-
-  const parsed = value
-    .split(",")
-    .map((item) => interests.find((interest) => interest.toLowerCase() === item.trim().toLowerCase()))
-    .filter((item): item is Interest => Boolean(item));
-
-  return parsed.length > 0 ? parsed : (["Culture"] satisfies Interest[]);
-}
-
-function getPreferences(searchParams: URLSearchParams): TravelPreferences {
-  return {
-    destination: searchParams.get("destination") ?? "",
-    budget: matchOption(searchParams.get("budget"), budgets, "Medium"),
-    duration: Number(searchParams.get("duration") ?? 3),
-    travelStyle: matchOption(searchParams.get("travelStyle"), travelStyles, "Couple"),
-    interests: parseInterests(searchParams.get("interests"))
-  };
-}
-
 export function PlanFromQuery() {
   const searchParams = useSearchParams();
-  const preferences = useMemo(() => getPreferences(searchParams), [searchParams]);
+  const preferences = useMemo(() => getPreferencesFromSearchParams(searchParams), [searchParams]);
   const [plan, setPlan] = useState<TravelPlan | null>(null);
   const [error, setError] = useState<string | null>(null);
 

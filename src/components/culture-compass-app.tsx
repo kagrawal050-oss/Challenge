@@ -51,7 +51,10 @@ export function CultureCompassApp() {
   }
 
   return (
-    <main className="min-h-screen bg-mist">
+    <main className="min-h-screen bg-mist" id="main-content">
+      <a className="skip-link" href="#plan-builder">
+        Skip to plan builder
+      </a>
       <section className="relative overflow-hidden bg-ink text-white">
         <Image
           alt=""
@@ -114,6 +117,7 @@ export function CultureCompassApp() {
       </section>
 
       <section
+        id="plan-builder"
         className="mx-auto grid max-w-6xl gap-6 px-4 pb-16 sm:px-6 lg:grid-cols-[0.9fr_1.3fr] lg:px-8"
         ref={formRef}
       >
